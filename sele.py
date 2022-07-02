@@ -22,7 +22,7 @@ count = 0
 
 for i in df.index:
     try:
-        if i < 0:
+        if i < 9454:
             pass
         else:
             dic = {}
