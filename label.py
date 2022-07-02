@@ -203,14 +203,17 @@ def main():
     for f in fold:
         if ".com" in f:
             print(f)
-            intilization(
+            try:
+             intilization(
                 "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output/"
                 + f
                 + "/request.json",
                 "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output/"
                 + f
                 + "/",
-            )
+             )
+            except:
+             pass
 
 
 main()
