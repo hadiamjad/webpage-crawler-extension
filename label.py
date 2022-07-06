@@ -197,6 +197,7 @@ def intilization(JSONfile_path, folder):
 
 
 def main():
+    count = 0
     fold = os.listdir(
         "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output"
     )
@@ -204,16 +205,17 @@ def main():
         if ".com" in f:
             print(f)
             try:
-             intilization(
-                "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output/"
-                + f
-                + "/request.json",
-                "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output/"
-                + f
-                + "/",
-             )
+                intilization(
+                    "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output/"
+                    + f
+                    + "/request.json",
+                    "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output/"
+                    + f
+                    + "/",
+                )
             except:
-             pass
+                count += 1
+                print(count)
 
 
 main()
