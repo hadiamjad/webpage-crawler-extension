@@ -64,10 +64,12 @@ def getScriptsMethods():
     script = {}
     method = {}
 
-    path = "/home/student/TrackerSift/ScriptML/webpage-crawler-extension/server/output"
+    path = "/home/student/TrackerSift/Hadi/webpage-crawler-extension/server/output"
 
     fold = os.listdir(path)
+    websites = []
     for f in fold:
+        websites.push(r"https://www." + f)
         if ".com" in f:
             if os.path.isfile(path + "/" + f + "/label_request.json"):
                 print(f)
@@ -116,16 +118,21 @@ def getScriptsMethods():
     mixedScriptMethod = {}
     for s in script.keys():
         if script[s][2] >= -2 and script[s][2] <= 2:
-            if s != "" and "http" in s:
+            if s != "" and "http" in s and s not in websites:
                 if s.find("http://") == 0 or s.find("https://") == 0:
                     mixedScripts.append(s)
         elif script[s][2] > 2:
-            if s != "" and "http" in s:
+            if s != "" and "http" in s and s not in websites:
                 if s.find("http://") == 0 or s.find("https://") == 0:
                     trackingScripts.append(s)
     for m in method:
         lst = m.split("@")
-        if lst[0] != "" and "http" in lst[0] and lst[0] in mixedScripts:
+        if (
+            lst[0] != ""
+            and "http" in lst[0]
+            and lst[0] not in websites
+            and lst[0] in mixedScripts
+        ):
             if lst[0].find("http://") == 0 or lst[0].find("https://") == 0:
                 if method[m][2] > 2:
                     if lst[0] not in mixedScriptMethod.keys():
