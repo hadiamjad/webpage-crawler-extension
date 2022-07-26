@@ -13,7 +13,7 @@ import os
 display = Display(visible=0, size=(800, 600))
 display.start()
 
-df = pd.read_csv(r"02.csv")
+df = pd.read_csv(r"1000web.csv")
 # extractDigits(os.listdir('/home/student/TrackerSift/UserStudy/output'))
 # df = pd.DataFrame([["washingtonpost.com/"]], columns=["website"])
 
@@ -22,7 +22,7 @@ count = 0
 
 for i in df.index:
     try:
-        if i < 9454:
+        if i < 793:
             pass
         else:
             dic = {}
