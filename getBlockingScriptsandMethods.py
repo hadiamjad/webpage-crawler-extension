@@ -69,7 +69,11 @@ def getScriptsMethods():
     fold = os.listdir(path)
     websites = []
     for f in fold:
+<<<<<<< HEAD
         websites.append(r"https://www." + f + "/")
+=======
+        websites.push(r"https://www." + f)
+>>>>>>> f16380aa5550ecc28211d59bbd5ba7582aa8aa13
         if ".com" in f:
             if os.path.isfile(path + "/" + f + "/label_request.json"):
                 print(f)
